@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icc WC Challenge</title>
+    <link rel="icon" href="https://media.giphy.com/media/6eR54ZtqxbWGl0R5Ck/giphy.gif" type="image/gif" />
     <!-- Add Bootstrap CSS link here -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="icon" href="https://media.giphy.com/media/6eR54ZtqxbWGl0R5Ck/giphy.gif" type="image/gif" />	
+    <style>
+        /* Custom styles for the navbar */
+        .navbar-custom {
+            background-color: #003366; /* Dark blue background color */
+        }
+        .navbar-custom .navbar-brand img {
+            max-height: 100%; /* Ensure the image scales with the navbar height */
+        }
+    </style>
+
+
 </head>
 <body>
+        <nav class="navbar navbar-expand-md navbar-custom">
+            <div class="container">
+                <!-- Logo on the left -->
+                <a class="navbar-brand" href="#">
+                    <img src="data:image/jpeg;base64,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y+b66qwynpqipigmlayWNpDHl2ezWPDgC7k2x7bNPixKK6WZiMx69flPr6Smc9tZ7E6qluwjdvA+G5B1cBz8dL8NClYiZxM4QGOwmcQAUsr4v2QbK5xIiLm9Rurrg2cOHDMFOJW9nOJ3e2Glj3h931Ykpgw7p84PVuS06vy2BadCdFCfZxmPejf6/snwUlJVxMqGsla2W0zRvHsyki9wAeqddbdp7SjOYxOEmlo6ejaW00TYwQAbDsAA9AEQzoCAgICAgICAg1rsHhklkdKS9sgkDmHT4y08e7KFf2k4xEIxOeUeDApIGFkdfJZ8W6kcWAvcMz3XvyPXPJaTq1mczX1spFLR/MyDAqffXec0IdmbDwAO7bGNeOjWkfeKp7WcYjn4/n19ForvyyPwx5w2KhZVOaxgDS4tuXsH0Tw5WB/qkakd82mETWcYy8HCC6UONR+zL45JIwwAOey2UjsGjdP5R33d8Y43/c7ZznIzCphTTxSVMUzpnZnvlpw7N8xfXlbkLKZvSZz2/lHbbHKfSQezU0UGdzxGxrA55u42FrnvWdpzMyvEYjDMoSICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg//2Q==" alt="Logo">
+                </a>
+                <!-- Text to the right -->
+                <span class="navbar-text ml-auto" style="color: aliceblue; font-size: medium;">
+                    ICC World cup 2023
+                </span>
+            </div>
+        </nav>
+        
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
