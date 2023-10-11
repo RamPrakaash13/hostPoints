@@ -11,53 +11,52 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="myTable">
                     <thead>
-                        <tr>
-                            <th>Rank</th>
+                        <tr>                           
                             <th>Name</th>
-                            <th>Points</th>
+                            <th class="sortable">Points</th>
                             <th>Top four</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Raghav</td>
-                            <td>8</td>
-                            <td>India,Southafrica,Australia and Newzeland</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Ram Prakaash</td>
-                            <td>7</td>
-                            <td>India,Pakistan,Australia and england</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Balaji</td>
-                            <td>7</td>
-                            <td>India,Pakistan,Australia and england</td>
-                        </tr>
-                        
-
-                        <tr>
-                            <td>4</td>
-                            <td>Sriram</td>
-                            <td>6</td>
-                            <td>India,Pakistan,Australia and england</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Vishnu</td>
-                            <td>6</td>
-                            <td>India,Newzeland,Australia and england</td>
-                        </tr>
-                        
+                            <tr>                            
+                                <td>Raghav</td>
+                                <td>8</td>
+                                <td>India,Southafrica,Australia and Newzeland</td>
+                            </tr>
+    
+                            <tr>
+                                
+                                <td>Ram Prakaash</td>
+                                <td>7</td>
+                                <td>India,Pakistan,Australia and england</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>Balaji</td>
+                                <td>7</td>
+                                <td>India,Pakistan,Australia and england</td>
+                            </tr>                                
+                            <tr>
+                                
+                                <td>Sriram</td>
+                                <td>6</td>
+                                <td>India,Pakistan,Australia and england</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>Vishnu</td>
+                                <td>6</td>
+                                <td>India,Newzeland,Australia and england</td>
+                            </tr>
+                            
+                        </tbody>
                     </tbody>
                 </table>
+            
                 <p style="color: red;"><strong>Match 1 - England vs Newzeland</strong></p>
                 <ul>
                     <li>Ram - Newzeland, Mitchelle (1)</li>
@@ -472,10 +471,43 @@
                     <li>Balaji - </li><br>
                     <p style="color: rgb(34, 111, 184);">Result - </p>
                 </ul>
-				
+		
+            
+            
             </div>
         </div>
     </div>
     <!-- Add Bootstrap JS and jQuery links here if needed -->
-   </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Sort the table by the "Points" column (index 2)
+            sortTable(1);
+        });
+
+        function sortTable(columnIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[columnIndex];
+                    y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                    if (Number(x.textContent) < Number(y.textContent)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+</body>
 </html>
